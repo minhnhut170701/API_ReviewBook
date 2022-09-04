@@ -26,11 +26,11 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-const db = process.env.MONGO || 'test'
-
-
 
 // middleware
+app.use('/', (req, res) =>{
+    res.json({message: "this is home page"})
+})
 app.use('/api/book', bookRoute)
 app.use('/api/book/comment', commentRoute)
 app.use('/api/user', userRoute)
